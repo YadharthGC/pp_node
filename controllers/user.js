@@ -31,3 +31,14 @@ exports.getuser = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.deluser = async (req, res) => {
+  try {
+    console.log(req.params.id);
+    let did = req.params.id;
+    let del = await user.findByIdAndDelete(did);
+    await del.save();
+  } catch (error) {
+    console.log(error);
+  }
+};
